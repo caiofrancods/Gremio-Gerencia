@@ -1,6 +1,7 @@
 <?php
     include_once "repo/noticiasCRUD.php";
     $registros = listar();
+    $imagens = listarImagens();
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" id="criar-tab" data-toggle="tab" href="#criar" role="tab" aria-controls="criar" aria-selected="false">Postar</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="img-tab" data-toggle="tab" href="#img" role="tab" aria-controls="img" aria-selected="false">Subir Imagem</a>
+        </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -37,8 +41,8 @@
                                 <p class="card-text text-muted">'.$registro['subtitulo'].'</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                    <a href="editarNoticia.php?codigo='.$registro['codigo'].'" class="btn btn-sm btn-outline-secondary">Editar</a>
+                                    <a href="control/noticiaExcluir.php?codigo='.$registro['codigo'].'" class="btn btn-sm btn-outline-secondary">Excluir</a>
                                   </div>
                                   <small class="text-muted">'.$registro['dataHorario'].'</small>
                                 </div>
@@ -76,6 +80,37 @@
               <button type="submit" class="btn btn-primary">Publicar</button>
             </div>
           </form>
+        </div>
+        <div class="tab-pane fade" id="img" role="tabpanel" aria-labelledby="img-tab">
+          <form id="formularioUsuario" class="mt-2" action="control/imagemSalvar.php" method="POST" enctype="multipart/form-data">  
+            <div class="form-group col-md-6">
+                <label for="imagem">Upload do arquivo</label>
+                <input type="file" class="form-control" id="imagem" name="imagem" accept=".jpg, .jpeg, .png" required>
+            </div>
+            <div class="form-row d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary">Subir</button>
+            </div>
+          </form>
+          <div class="table-responsive mt-2">
+                        <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                            <th>Nome do Arquivo</th>
+                            <th>Caminho</th>                           
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php	
+                            foreach($imagens as $imagem){
+                            echo "<tr>";
+                            echo "<td>{$imagem['nome']} </td>";
+                            echo "<td>{$imagem['caminho']} </td>";
+                            echo "</tr>";
+                            } 
+                        ?>
+                        </tbody>
+                        </table>
+                    </div>
         </div>
       </div>
     </main>

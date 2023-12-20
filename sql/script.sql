@@ -62,8 +62,15 @@ CREATE TABLE Noticia (
     codigo INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(255),
     subtitulo VARCHAR(255),
-    texto VARCHAR(2000),
-    dataHorario VARCHAR(255)
+    texto VARCHAR(5000),
+    dataHorario VARCHAR(255),
+    edicao VARCHAR(255);
+);
+
+CREATE TABLE Imagem (
+    codigo INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255),
+    caminho VARCHAR (500)
 );
 
 -- Inserção de dados na tabela Usuario
