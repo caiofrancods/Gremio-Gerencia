@@ -2,6 +2,7 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 <script src="js/vendor/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/onchange.js"></script>
 
 <!-- Ícones -->
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>

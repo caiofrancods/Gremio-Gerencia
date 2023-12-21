@@ -48,8 +48,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="patrimonial.php">
+                <a class="nav-link" href="financeiro.php">
                   <span data-feather="dollar-sign"></span>
+                  Financeiro
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="patrimonial.php">
+                  <span data-feather="layers"></span>
                   Patrimonial
                 </a>
               </li>

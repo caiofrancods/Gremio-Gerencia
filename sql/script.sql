@@ -45,7 +45,10 @@ CREATE TABLE Movimentacao (
 CREATE TABLE Acervo (
     codigo INT PRIMARY KEY,
     codDocumento INT,
-    descricao VARCHAR(255)
+    descricao VARCHAR(255),
+    situacao INT,
+    documentoBaixa INT,
+    justificativa VARCHAR(500);
 );
 
 -- Criação da tabela Evento

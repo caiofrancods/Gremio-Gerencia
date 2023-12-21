@@ -1,73 +1,52 @@
 <?
 include_once "banco.php";
 function salvar($tipo, $valor, $doc, $descricao) {
-    if($tipo == 1 || $tipo == 2){
-        try {
-            $conexao = criarConexao();
-            $sql = "INSERT INTO Movimentacao(valor, tipo, codigoDocumento, descricao) 
-                    VALUES(:valor, :tipo, :codigoDocumento, :descricao);";
-            $sentenca = $conexao->prepare($sql);
-            $sentenca->bindValue(':valor', $valor);
-            $sentenca->bindValue(':tipo', $tipo);
-            $sentenca->bindValue(':codigoDocumento', $doc);
-            $sentenca->bindValue(':descricao', $descricao);
-            $sentenca->execute();
-            $codigo = $conexao->lastInsertId();
-            $conexao = null;
-            return $codigo;
-        } catch (PDOException $erro) {
-            echo($erro);
-            die();
-            return 0;
-        }
-    }else if($tipo == 3){
-        try {
-            $conexao = criarConexao();
-            $sql = "INSERT INTO Acervo(codigo, codDocumento, descricao) 
-                    VALUES(:codigo, :codigoDocumento, :descricao);";
-            $sentenca = $conexao->prepare($sql);
-            $sentenca->bindValue(':codigo', $valor);
-            $sentenca->bindValue(':codigoDocumento', $doc);
-            $sentenca->bindValue(':descricao', $descricao);
-            $sentenca->execute();
-            $codigo = $conexao->lastInsertId();
-            $conexao = null;
-            return $codigo;
-        } catch (PDOException $erro) {
-            echo($erro);
-            die();
-            return 0;
-        }
+    try {
+        $conexao = criarConexao();
+        $sql = "INSERT INTO Acervo(codigo, codDocumento, descricao, situacao) 
+                VALUES(:codigo, :codigoDocumento, :descricao, :situacao);";
+        $sentenca = $conexao->prepare($sql);
+        $sentenca->bindValue(':codigo', $valor);
+        $sentenca->bindValue(':codigoDocumento', $doc);
+        $sentenca->bindValue(':descricao', $descricao);
+        $sentenca->bindValue(':situacao', 1);
+        $sentenca->execute();
+        $codigo = $conexao->lastInsertId();
+        $conexao = null;
+        return $codigo;
+    } catch (PDOException $erro) {
+        echo($erro);
     }
 }
 
-function listarEntrada(){
-    try{
-        $sql = "SELECT * FROM Movimentacao WHERE tipo = 1;";
-
-        $conexao = criarConexao();        
+function baixa($codItem, $codDocumento, $justificativa) {
+    try {
+        $conexao = criarConexao();
+        $sql = "UPDATE Acervo SET tipo = :tipo, documentoBaixa = :documentoBaixa, justificativa = :justificativa WHERE codigo = :codigo;";
         $sentenca = $conexao->prepare($sql);
-    
-        $sentenca->execute();     
+        $sentenca->bindValue(':situacao', 2);
+        $sentenca->bindValue(':documentoBaixa', $codDocumento);
+        $sentenca->bindValue(':justificativa', $justificativa);
+        $sentenca->bindValue(':codigo', $codItem);
+        $sentenca->execute();
         $conexao = null;
-        return $sentenca->fetchAll();
-    }catch (PDOException $erro){
-        echo ($erro);
+        return $sentenca->rowCount();
+    } catch (PDOException $erro) {
+        echo($erro);
     }
 }
 
-function listarSaida(){
-    try{
-        $sql = "SELECT * FROM Movimentacao WHERE tipo = 2;";
-
-        $conexao = criarConexao();        
+function buscarPorCodigo($id){
+    try {
+        $conexao = criarConexao();
+        $sql = "SELECT * FROM Acervo WHERE codigo = :codigo";
         $sentenca = $conexao->prepare($sql);
-    
-        $sentenca->execute();     
+        $sentenca->bindValue(':codigo', $id);
+        $sentenca->execute();
         $conexao = null;
-        return $sentenca->fetchAll();
-    }catch (PDOException $erro){
-        echo ($erro);
+        return $sentenca->fetch();
+    } catch (PDOException $erro) {
+        echo($erro);
     }
 }
 
