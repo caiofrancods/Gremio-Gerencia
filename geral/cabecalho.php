@@ -1,3 +1,6 @@
+<?php session_start(); 
+ $dadosUsuario = $_SESSION['dadosUsuario'];?>
+
 <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm cabecalho d-grid justify-content-between mb-4" id="mainNav">
     <div>    
         <a href="index.php"><img class="img-fluid logo ml-4" src="imagens/logo.jpeg" alt="logo do grêmio"></a>
@@ -6,10 +9,10 @@
     <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
         <li class="nav-item dropdown">
         <a class="nav-item nav-link dropdown-toggle mr-md-2 text-white" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Fulano
+            <? echo $dadosUsuario['nome']; ?>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
-            <a class="dropdown-item" href="/docs/4.1/">Sair</a>
+            <a class="dropdown-item" href="control/sair.php">Sair</a>
         </div>
         </li>
     </ul>
