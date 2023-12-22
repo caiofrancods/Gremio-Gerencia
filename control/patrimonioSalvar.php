@@ -7,25 +7,23 @@
 	$desc = ($_POST["desc"]);
 	if($tipo == 1){
 		$quantidade = salvar($tipo, $codItem, $cod, $desc);	   
-	
+		
+		include_once "../geral/alertas.php";
 		if($quantidade > 0){
-			echo  "<script>alert('Registro salvo com sucesso!');</script>";
-			echo  "<script>window.location.replace('../patrimonial.php');</script>";
+			sucesso('patrimonial.php');
 		}else{
-			echo  "<script>alert('Erro ao salvar o registro');</script>";
-			echo  "<script>window.location.replace('../patrimonial.php');</script>";		
+			error('patrimonial.php');		
 		}
 	}else{
 		$verificar = buscarPorCodigo($codItem);
 		if($verificar != null){
 			$cont = baixa($codItem, $cod, $desc);
 			if($cont > 0){
+				include_once "../geral/alertas.php";
 				if($quantidade > 0){
-					echo  "<script>alert('Registro salvo com sucesso!');</script>";
-					echo  "<script>window.location.replace('../patrimonial.php');</script>";
+					sucesso('patrimonial.php');
 				}else{
-					echo  "<script>alert('Erro ao salvar o registro');</script>";
-					echo  "<script>window.location.replace('../patrimonial.php');</script>";		
+					error('patrimonial.php');		
 				}
 			}
 		}

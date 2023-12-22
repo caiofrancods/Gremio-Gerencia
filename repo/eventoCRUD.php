@@ -15,8 +15,7 @@ function salvar($nome, $resp, $data, $descricao) {
         $conexao = null;
         return $codigo;
     } catch (PDOException $erro) {
-        echo($erro);
-        return 0;
+        return $erro;
     }
     
 }

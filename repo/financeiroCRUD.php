@@ -17,7 +17,7 @@ function salvar($tipo, $valor, $doc, $descricao){
 
         return $codigo;
     } catch (PDOException $erro) {
-        echo($erro);
+        return ($erro);
     }
 }
 function listarEntrada(){

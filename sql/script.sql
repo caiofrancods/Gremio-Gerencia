@@ -37,14 +37,14 @@ CREATE TABLE Movimentacao (
     codigo INT PRIMARY KEY AUTO_INCREMENT,
     valor DECIMAL(10, 2),
     tipo INT,
-    codigoDocumento INT,
+    documento VARCHAR(500),
     descricao VARCHAR(255)
 );
 
 -- Criação da tabela Acervo
 CREATE TABLE Acervo (
     codigo INT PRIMARY KEY,
-    codDocumento INT,
+    documento VARCHAR(500),
     descricao VARCHAR(255),
     situacao INT,
     documentoBaixa INT,

@@ -8,11 +8,11 @@
     $quantidade = salvar($tipo, $valor, $cod, $desc);
    
 
-	if($quantidade > 0){
-		echo  "<script>alert('Registro salvo com sucesso!');</script>";
-		echo  "<script>window.location.replace('../financeiro.php');</script>";
+    include_once "../geral/alertas.php";
+	
+    if($quantidade > 0){
+		sucesso('financeiro.php');
 	}else{
-		echo  "<script>alert('Erro ao salvar o registro');</script>";
-		echo  "<script>window.location.replace('../financeiro.php');</script>";		
+		error('noticias.php');		
 	}
 ?>
