@@ -14,11 +14,10 @@ function salvar($tipo, $valor, $doc, $descricao){
         $sentenca->execute();
         $codigo = $conexao->lastInsertId();
         $conexao = null;
+
         return $codigo;
     } catch (PDOException $erro) {
         echo($erro);
-        die();
-        return 0;
     }
 }
 function listarEntrada(){

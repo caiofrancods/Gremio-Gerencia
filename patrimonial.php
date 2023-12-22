@@ -44,7 +44,7 @@
                             echo "<tr>";
                             echo "<td>{$registro['descricao']} </td>";
                             echo "<td>{$registro['codigo']} </td>";
-                            echo "<td>{$registro['codDocumento']} </td>";
+                            echo "<td><a href=".$registro['codDocumento']." target='_blank'>Link</a></td>";
                             $sit = $registro['situacao'];
                             if($sit == 1){
                                 echo "<td>Ativo</td>";
@@ -78,7 +78,7 @@
                                 <input type="text" id="codItem" name="codItem" class="form-control" placeholder="" required>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="cod">Código do Documento</label>
+                                <label for="cod">Link do Documento</label>
                                 <input type="text" id="cod" name="cod" class="form-control" placeholder="" required>
                             </div>
                             <div class="form-group col-md-12">

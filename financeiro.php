@@ -50,7 +50,7 @@
                             echo "<td>{$registro['descricao']} </td>";
                             echo "<td>{$registro['valor']} </td>";
                             echo "<td>{$registro['codigo']} </td>";
-                            echo "<td>{$registro['codigoDocumento']} </td>";
+                            echo "<td><a href=".$registro['codigoDocumento']." target='_blank'>Link</a></td>";
                             echo "</tr>";
                             } 
                         ?>
@@ -76,7 +76,7 @@
                             echo "<td>{$registro['descricao']} </td>";
                             echo "<td>{$registro['valor']} </td>";
                             echo "<td>{$registro['codigo']} </td>";
-                            echo "<td>{$registro['codigoDocumento']} </td>";
+                            echo "<td><a href=".$registro['codigoDocumento']." target='_blank'>Link</a></td>";
                             
                             echo "</tr>";
                             } 
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="criar" role="tabpanel" aria-labelledby="criar-tab">
-                    <form id="#formularioPatrimonio" class="mt-2" action="control/patrimonioSalvar.php" method="POST">
+                    <form id="#formularioPatrimonio" class="mt-2" action="control/financeiroSalvar.php" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="tipo">Tipo de Lançamento</label>
@@ -98,10 +98,10 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="valor">Valor</label>
-                                <input type="text" id="valor" name="valor" class="form-control" placeholder="" required>
+                                <input type="number" pattern="^\d+(\.\d{1,2})?$" id="valor" name="valor" class="form-control" placeholder="" required>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="cod">Código do Documento</label>
+                                <label for="cod">Link do Documento</label>
                                 <input type="text" id="cod" name="cod" class="form-control" placeholder="" required>
                             </div>
                             <div class="form-group col-md-12">
