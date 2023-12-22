@@ -1,3 +1,8 @@
+<?
+include_once 'repo/eventoCRUD.php';
+$registros = listarEventosDaSemana();
+$registros2 = listarEventosDaPróximaSemana();
+?>
 
 <!doctype html>
 <html>
@@ -14,22 +19,30 @@
       </div>
     <main>
     <div class="container">
-      <div class="card">
-        <div class="card-header">
-          Assinaturas Pendentes
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Assinaturas Pendentes</h5>
-          <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
-        </div>
-      </div>
       <div class="card mt-2">
         <div class="card-header">
           Eventos e Reuniões nesta Semana
         </div>
         <div class="card-body">
-          <h5 class="card-title">Assinaturas Pendentes</h5>
-          <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+          <?php	
+            foreach($registros as $registro){
+              $dataFormatada = date("d/m/Y", strtotime($registro['dataHorario']));
+              echo '<p class="card-text"><span class="text-muted">['.$registro['responsavel'].']</span> '.$dataFormatada.' - '.$registro['descricao'].'</p>';
+            }
+          ?>
+        </div>
+      </div>
+      <div class="card mt-2">
+        <div class="card-header">
+          Eventos e Reuniões da Próxima Semana
+        </div>
+        <div class="card-body">
+          <?php	
+            foreach($registros2 as $registro){
+              $dataFormatada = date("d/m/Y", strtotime($registro['dataHorario']));
+              echo '<p class="card-text"><span class="text-muted">['.$registro['responsavel'].']</span> '.$dataFormatada.' - '.$registro['descricao'].'</p>';
+            }
+          ?>
         </div>
       </div>
     </div>

@@ -42,7 +42,8 @@
                             echo "<tr>";
                             echo "<td>{$registro['nome']} </td>";
                             echo "<td>{$registro['responsavel']} </td>";
-                            echo "<td>{$registro['dataHorario']} </td>";
+                            $dataFormatada = date("d/m/Y", strtotime($registro['dataHorario']));
+                            echo "<td>{$dataFormatada} </td>";
                             echo "<td>{$registro['descricao']} </td>";
                             echo "</tr>";
                             } 

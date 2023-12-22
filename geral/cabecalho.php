@@ -24,7 +24,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active mt-4" href="index.php">
+                <a class="nav-link active mt-4" href="inicial.php">
                   <span data-feather="home"></span>
                   Início <span class="sr-only">(atual)</span>
                 </a>
@@ -57,6 +57,12 @@
                 <a class="nav-link" href="patrimonial.php">
                   <span data-feather="layers"></span>
                   Patrimonial
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" target='_blank' href="https://registroarmario.gremiotimoteo.online/view/admin/loginAdmin.php">
+                  <span data-feather="archive"></span>
+                  Armários
                 </a>
               </li>
             </ul>
