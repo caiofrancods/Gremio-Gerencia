@@ -50,7 +50,7 @@
                             if($sit == 1){
                                 echo "<td>Ativo</td>";
                             }else{
-                                echo "<td>Retirado (Baixa)</td>";
+                                echo "<td>Retirado (<a href=".$registro['documentoBaixa']." target='_blank'>Doc</a>)</td>";
                             }
                             
                             echo "</tr>";

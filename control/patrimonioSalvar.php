@@ -6,7 +6,7 @@
 	$cod = ($_POST["cod"]);
 	$desc = ($_POST["desc"]);
 	if($tipo == 1){
-		$quantidade = salvar($tipo, $codItem, $cod, $desc);	   
+		$quantidade = salvar($codItem, $cod, $desc);	   
 		
 		include_once "../geral/alertas.php";
 		if($quantidade > 0){
@@ -16,16 +16,16 @@
 		}
 	}else{
 		$verificar = buscarPorCodigo($codItem);
-		if($verificar != null){
+		include_once "../geral/alertas.php";
+		if($verificar != null && $verificar['situacao'] != 2){
 			$cont = baixa($codItem, $cod, $desc);
 			if($cont > 0){
-				include_once "../geral/alertas.php";
-				if($quantidade > 0){
-					sucesso('patrimonial.php');
-				}else{
-					error('patrimonial.php');		
-				}
+				sucesso('patrimonial.php');
+			}else{
+				error('patrimonial.php');
 			}
+		}else{
+			error('patrimonial.php');
 		}
 	}
     

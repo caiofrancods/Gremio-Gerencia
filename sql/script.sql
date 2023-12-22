@@ -47,8 +47,8 @@ CREATE TABLE Acervo (
     documento VARCHAR(500),
     descricao VARCHAR(255),
     situacao INT,
-    documentoBaixa INT,
-    justificativa VARCHAR(500);
+    documentoBaixa VARCHAR(500),
+    justificativa VARCHAR(500)
 );
 
 -- Criação da tabela Evento
@@ -67,7 +67,7 @@ CREATE TABLE Noticia (
     subtitulo VARCHAR(255),
     texto VARCHAR(5000),
     dataHorario VARCHAR(255),
-    edicao VARCHAR(255);
+    edicao VARCHAR(255)
 );
 
 CREATE TABLE Imagem (

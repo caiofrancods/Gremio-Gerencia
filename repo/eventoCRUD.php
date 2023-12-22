@@ -62,7 +62,7 @@ function listarEventosDaSemana() {
         $sabadoDaSemana = date("Y-m-d", strtotime("next saturday", strtotime($dataAtual)));
 
         // Consulta SQL com a condição da semana e data futura
-        $sql = "SELECT * FROM Evento WHERE dataHorario BETWEEN :domingoDaSemana AND :sabadoDaSemana AND dataHorario > :dataAtual;";
+        $sql = "SELECT * FROM Evento WHERE dataHorario BETWEEN :domingoDaSemana AND :sabadoDaSemana AND dataHorario > :dataAtual ORDER BY dataHorario;";
 
         $conexao = criarConexao();
         $sentenca = $conexao->prepare($sql);
@@ -93,7 +93,7 @@ function listarEventosDaPróximaSemana() {
         $proximoSabado = date("Y-m-d", strtotime("next saturday", strtotime($proximoDomingo)));
 
         // Consulta SQL com a condição da próxima semana e data futura
-        $sql = "SELECT * FROM Evento WHERE dataHorario BETWEEN :proximoDomingo AND :proximoSabado AND dataHorario > :dataAtual;";
+        $sql = "SELECT * FROM Evento WHERE dataHorario BETWEEN :proximoDomingo AND :proximoSabado AND dataHorario > :dataAtual ORDER BY dataHorario;";
 
         $conexao = criarConexao();
         $sentenca = $conexao->prepare($sql);

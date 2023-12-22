@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="data">Data</label>
-                                <input type="date" id="data" name="data" class="form-control" required>
+                                <input type="date" id="data" name="data" min="<?php echo date('Y-m-d'); ?>" class="form-control" required>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="descricao">Descrição</label>

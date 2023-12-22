@@ -51,7 +51,7 @@
                             echo "<td>{$registro['descricao']} </td>";
                             echo "<td>{$registro['valor']} </td>";
                             echo "<td>{$registro['codigo']} </td>";
-                            echo "<td><a href=".$registro['codigoDocumento']." target='_blank'>Link</a></td>";
+                            echo "<td><a href=".$registro['documento']." target='_blank'>Link</a></td>";
                             echo "</tr>";
                             } 
                         ?>
@@ -77,7 +77,7 @@
                             echo "<td>{$registro['descricao']} </td>";
                             echo "<td>{$registro['valor']} </td>";
                             echo "<td>{$registro['codigo']} </td>";
-                            echo "<td><a href=".$registro['codigoDocumento']." target='_blank'>Link</a></td>";
+                            echo "<td><a href=".$registro['documento']." target='_blank'>Link</a></td>";
                             
                             echo "</tr>";
                             } 
@@ -99,7 +99,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="valor">Valor</label>
-                                <input type="number" pattern="^\d+(\.\d{1,2})?$" id="valor" name="valor" class="form-control" placeholder="" required>
+                                <input type="text" onkeypress="$(this).mask('R$ #.##0,00', {reverse: true});" id="valor" name="valor" class="form-control" placeholder="" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="cod">Link do Documento</label>

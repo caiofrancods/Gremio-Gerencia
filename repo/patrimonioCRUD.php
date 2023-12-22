@@ -1,28 +1,26 @@
 <?
 include_once "banco.php";
-function salvar($tipo, $valor, $doc, $descricao) {
+function salvar($codItem, $doc, $descricao) {
     try {
         $conexao = criarConexao();
-        $sql = "INSERT INTO Acervo(codigo, codDocumento, descricao, situacao) 
-                VALUES(:codigo, :codigoDocumento, :descricao, :situacao);";
+        $sql = "INSERT INTO Acervo(codigo, documento, descricao, situacao) 
+                VALUES(:codigo, :documento, :descricao, :situacao);";
         $sentenca = $conexao->prepare($sql);
-        $sentenca->bindValue(':codigo', $valor);
-        $sentenca->bindValue(':codigoDocumento', $doc);
+        $sentenca->bindValue(':codigo', $codItem);
+        $sentenca->bindValue(':documento', $doc);
         $sentenca->bindValue(':descricao', $descricao);
         $sentenca->bindValue(':situacao', 1);
         $sentenca->execute();
-        $codigo = $conexao->lastInsertId();
-        $conexao = null;
-        return $codigo;
+        return $sentenca->rowCount();
     } catch (PDOException $erro) {
-        return $erro;
+        echo $erro;
     }
 }
 
 function baixa($codItem, $codDocumento, $justificativa) {
     try {
         $conexao = criarConexao();
-        $sql = "UPDATE Acervo SET tipo = :tipo, documentoBaixa = :documentoBaixa, justificativa = :justificativa WHERE codigo = :codigo;";
+        $sql = "UPDATE Acervo SET situacao = :situacao, documentoBaixa = :documentoBaixa, justificativa = :justificativa WHERE codigo = :codigo;";
         $sentenca = $conexao->prepare($sql);
         $sentenca->bindValue(':situacao', 2);
         $sentenca->bindValue(':documentoBaixa', $codDocumento);
@@ -30,7 +28,7 @@ function baixa($codItem, $codDocumento, $justificativa) {
         $sentenca->bindValue(':codigo', $codItem);
         $sentenca->execute();
         $conexao = null;
-        return $sentenca->rowCount();
+        return 2;
     } catch (PDOException $erro) {
         echo($erro);
     }

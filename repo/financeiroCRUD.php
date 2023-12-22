@@ -4,12 +4,12 @@ include_once "banco.php";
 function salvar($tipo, $valor, $doc, $descricao){
     try {
         $conexao = criarConexao();
-        $sql = "INSERT INTO Movimentacao(valor, tipo, codigoDocumento, descricao) 
-                VALUES(:valor, :tipo, :codigoDocumento, :descricao);";
+        $sql = "INSERT INTO Movimentacao(valor, tipo, documento, descricao) 
+                VALUES(:valor, :tipo, :documento, :descricao);";
         $sentenca = $conexao->prepare($sql);
         $sentenca->bindValue(':valor', $valor);
         $sentenca->bindValue(':tipo', $tipo);
-        $sentenca->bindValue(':codigoDocumento', $doc);
+        $sentenca->bindValue(':documento', $doc);
         $sentenca->bindValue(':descricao', $descricao);
         $sentenca->execute();
         $codigo = $conexao->lastInsertId();
@@ -17,7 +17,8 @@ function salvar($tipo, $valor, $doc, $descricao){
 
         return $codigo;
     } catch (PDOException $erro) {
-        return ($erro);
+        echo ($erro);
+        die();
     }
 }
 function listarEntrada(){
