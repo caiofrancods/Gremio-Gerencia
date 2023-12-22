@@ -6,6 +6,7 @@
 
 <!-- Principal CSS do Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datatables.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 

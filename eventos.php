@@ -27,7 +27,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="table-responsive mt-2">
-                        <table class="table table-striped table-sm">
+                        <table id="tabela" class="table table-striped table-sm">
                         <thead>
                             <tr>
                             <th>Evento</th>

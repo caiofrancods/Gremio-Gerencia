@@ -34,7 +34,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="table-responsive mt-2">
-                        <table class="table table-striped table-sm">
+                        <table id="tabela" class="table table-striped table-sm">
                         <thead>
                             <tr>
                             <th>Descricao</th>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="tab-pane fade" id="perfil" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="table-responsive mt-2">
-                        <table class="table table-striped table-sm">
+                        <table id="tabela2" class="table table-striped table-sm">
                         <thead>
                             <tr>
                             <th>Descricao</th>
