@@ -51,23 +51,23 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="criar" role="tabpanel" aria-labelledby="criar-tab">
-                    <form id="#formularioUsuario" class="mt-2" action="../../controle/usuarioSalvar.php" method="POST">
+                    <form id="#formularioUsuario" class="mt-2" action="control/eventoSalvar.php" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="nome">Nome do Evento</label>
-                                <input type="text" id="nome" name="nome" class="form-control" placeholder="John" required>
+                                <label for="evento">Nome do Evento</label>
+                                <input type="text" id="evento" name="evento" class="form-control" required>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="nome">Responsável</label>
-                                <input type="text" id="nome" name="nome" class="form-control" placeholder="John" required>
+                                <label for="responsavel">Responsável</label>
+                                <input type="text" id="responsavel" name="responsavel" class="form-control" required>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="nome">Data</label>
-                                <input type="date" id="nome" name="nome" class="form-control" placeholder="John" required>
+                                <label for="data">Data</label>
+                                <input type="date" id="data" name="data" class="form-control" required>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="nome">Descrição</label>
-                                <input type="text" id="nome" name="nome" class="form-control" placeholder="John" required>
+                                <label for="descricao">Descrição</label>
+                                <input type="text" id="descricao" name="descricao" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-row d-flex justify-content-end">
