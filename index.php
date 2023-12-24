@@ -12,6 +12,15 @@
       <a href="#"><img class="img-fluid logoLogin" src="imagens/logo.jpeg" alt="logo do grêmio"></a>
     </div>
     <div class="corpo">
+        <? if(isset($_GET['acesso'])){
+            if($_GET['acesso'] == 1){
+                echo '<div class="alert alert-success text-center" role="alert">
+                    Faça login para acessar o sistema
+                </div>';
+            }
+        }
+        ?>
+        
       <form class="form-signin" class="corpo" id="formularioLogin" action="control/usuarioAutenticar.php" method="POST" >
         <h5 class="h3 mb-2 font-weight-normal text-center mt-4">Faça login</h5>
         <h6 class="h6 mb-3 font-weight-normal text-center mt-4 text-muted font-italic">Sistema de Gerenciamento do Grêmio Estudantil</h6>

@@ -1,6 +1,3 @@
-<?php session_start(); 
- $dadosUsuario = $_SESSION['dadosUsuario'];?>
-
 <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm cabecalho d-grid justify-content-between mb-4" id="mainNav">
     <div>    
         <a href="index.php"><img class="img-fluid logo ml-4" src="imagens/logo.jpeg" alt="logo do grêmio"></a>
@@ -29,13 +26,13 @@
                   Início <span class="sr-only">(atual)</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <? if($dadosUsuario['cargo'] != 5 && $dadosUsuario['cargo'] != 1){echo "d-none";} ?>">
                 <a class="nav-link" href="documentos.php">
                   <span data-feather="file"></span>
                   Documentos
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <? if($dadosUsuario['cargo'] != 4 && $dadosUsuario['cargo'] != 1){echo "d-none";} ?>">
                 <a class="nav-link" href="noticias.php">
                   <span data-feather="file-text"></span>
                   Notícias
@@ -47,19 +44,19 @@
                   Eventos
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <? if($dadosUsuario['cargo'] != 2 && $dadosUsuario['cargo'] != 1){echo "d-none";} ?>">
                 <a class="nav-link" href="financeiro.php">
                   <span data-feather="dollar-sign"></span>
                   Financeiro
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <? if($dadosUsuario['cargo'] != 2 && $dadosUsuario['cargo'] != 1){echo "d-none";} ?>">
                 <a class="nav-link" href="patrimonial.php">
                   <span data-feather="layers"></span>
                   Patrimonial
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <? if($dadosUsuario['cargo'] != 3 && $dadosUsuario['cargo'] != 1){echo "d-none";} ?>">
                 <a class="nav-link" target='_blank' href="https://registroarmario.gremiotimoteo.online/view/admin/loginAdmin.php">
                   <span data-feather="archive"></span>
                   Armários

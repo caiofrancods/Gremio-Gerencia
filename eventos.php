@@ -1,3 +1,4 @@
+<? include_once "geral/acesso.php";?>
 <?php
     include_once "repo/eventoCRUD.php";
     $registros = listar();
@@ -20,7 +21,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Eventos</a>
                 </li>
-                <li class="nav-item">
+                <li id="opcaoCriarEvento" class="nav-item <? if($dadosUsuario['cargo'] != 6 && $dadosUsuario['cargo'] != 1){echo "d-none";} ?>">
                     <a class="nav-link" id="criar-tab" data-toggle="tab" href="#criar" role="tab" aria-controls="criar" aria-selected="false">Criar</a>
                 </li>
             </ul>
@@ -52,7 +53,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="criar" role="tabpanel" aria-labelledby="criar-tab">
+                <div class="tab-pane fade <? if($dadosUsuario['cargo'] != 6 && $dadosUsuario['cargo'] != 1){echo "d-none";} ?>" id="criar" role="tabpanel" aria-labelledby="criar-tab">
                     <form id="#formularioUsuario" class="mt-2" action="control/eventoSalvar.php" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-4">

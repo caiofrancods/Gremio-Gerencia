@@ -1,4 +1,8 @@
-
+<? include_once "geral/acesso.php";
+    if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 5){
+        echo "<script>alert('Acesso Negado');location.href='inicial.php';</script>";
+    }
+?>
 <!doctype html>
 <html>
   <head>

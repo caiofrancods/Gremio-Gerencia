@@ -1,3 +1,8 @@
+<? include_once "geral/acesso.php";
+    if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 2){
+        echo "<script>alert('Acesso Negado');location.href='inicial.php';</script>";
+    }
+?>
 <?php
     include_once "repo/patrimonioCRUD.php";
     $registros3 = listarAcervo();

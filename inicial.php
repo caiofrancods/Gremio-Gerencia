@@ -1,3 +1,4 @@
+<? include_once "geral/acesso.php" ?>
 <?
 include_once 'repo/eventoCRUD.php';
 $registros = listarEventosDaSemana();

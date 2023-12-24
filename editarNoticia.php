@@ -1,3 +1,8 @@
+<? include_once "geral/acesso.php";
+    if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 4){
+        echo "<script>alert('Acesso Negado');location.href='inicial.php';</script>";
+    }
+?>
 <?php
     include_once "repo/noticiasCRUD.php";
     $registro = buscarPorId($_GET['codigo']);
