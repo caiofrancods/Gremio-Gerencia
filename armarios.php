@@ -1,3 +1,8 @@
+<? include_once "geral/acesso.php";
+    if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 3 && $dadosUsuario['cargo'] != 7){
+        echo "<script>alert('Acesso Negado');location.href='inicial.php';</script>";
+    }
+?>
 <? include_once "geral/acesso.php";?>
 <?php
     include_once "repo/armariosList.php";

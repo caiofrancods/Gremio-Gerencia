@@ -1,3 +1,8 @@
+<? include_once "geral/acesso.php";
+    if($dadosUsuario['cargo'] == 7){
+        echo "<script>alert('Acesso Negado');location.href='armarios.php';</script>";
+    }
+?>
 <? include_once "geral/acesso.php";?>
 <?php
     include_once "repo/eventoCRUD.php";
