@@ -3,13 +3,48 @@ html {
   width: 100%;
 }
 body {
-  font-family: 'Poppins', sans-serif;
-  height: 100%;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
   width: 100%;
 }
 
-.cabecalho{
-  background-color: #051D40;
+.sidebar {
+  height: 100%;
+  width: 230px;
+  overflow: hidden;
+  transition: width 0.5s;
+  /* top: 56px;
+  left: 0; */
+  /* padding-top: 20px; */
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 56px); /* Ajuste conforme a altura do seu navbar */
+  /* padding-top: 0.5rem; */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.total {
+  background-color: #ffffff; /* Cor de fundo da parte inferior da página */
+  min-height: 90vh;
+  max-height: 200vh;
+}
+.nav-link {
+  .a {
+    text-decoration: none;
+  }
+}
+
+.cabecalho {
+  background-color: #051d40;
+  padding: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .logo {
