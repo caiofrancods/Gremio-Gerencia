@@ -21,7 +21,9 @@
             <div class="sidebar-sticky cabecalho">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="text-white nav-link active" href="inicial.php">
+                        <a class="text-white nav-link active <? if ($dadosUsuario['cargo'] == 7) {
+                            echo "d-none";
+                        } ?>" href="inicial.php">
                             <span data-feather="home"></span>
                             Início <span class="sr-only">(atual)</span>
                         </a>
@@ -45,7 +47,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white nav-link" href="eventos.php">
+                        <a class="text-white nav-link <? if ($dadosUsuario['cargo'] == 7) {
+                            echo "d-none";
+                        } ?>" href="eventos.php">
                             <span data-feather="calendar"></span>
                             Eventos
                         </a>
@@ -69,11 +73,10 @@
                         </a>
                     </li>
                     <li
-                        class="nav-item <? if ($dadosUsuario['cargo'] != 3 && $dadosUsuario['cargo'] != 1) {
+                        class="nav-item <? if ($dadosUsuario['cargo'] != 3 && $dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 7) {
                             echo "d-none";
                         } ?>">
-                        <a class="text-white nav-link" target='_blank'
-                            href="https://registroarmario.gremiotimoteo.online/view/admin/loginAdmin.php">
+                        <a class="text-white nav-link" href="armarios.php">
                             <span data-feather="archive"></span>
                             Armários
                         </a>
